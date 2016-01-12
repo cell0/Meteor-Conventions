@@ -7,11 +7,11 @@ Conventions used by Cell[0] on [Meteor](https://www.meteor.com/) projects
 Table of contents
 -----------------
 
-  1. [Introduction](#introduction)
-  1. [Documentation](#documentation)
-  1. [Folder Structure](#folder-structure)
-  1. [Client / Server / Lib](#client-server-lib)
-  1. [Style](#style)
+  1. [Introduction](#markdown-header-introduction)
+  1. [Documentation](#markdown-header-documentation)
+  1. [Folder Structure](#markdown-header-folder-structure)
+  1. [Client / Server / Lib](#markdown-header-client-server-lib)
+  1. [Style](#markdown-header-style)
 
 
 Introduction
