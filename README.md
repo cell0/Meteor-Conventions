@@ -7,11 +7,11 @@ Conventions used by Cell[0] on [Meteor](https://www.meteor.com/) projects
 Table of contents
 -----------------
 
-  1. [Introduction](#markdown-header-introduction)
-  1. [Documentation](#markdown-header-documentation)
-  1. [Folder Structure](#markdown-header-folder-structure)
-  1. [Client / Server / Lib](#markdown-header-client-server-lib)
-  1. [Style](#markdown-header-style)
+  1. [Introduction](#introduction)
+  1. [Documentation](#documentation)
+  1. [Folder Structure](#folder-structure)
+  1. [Client / Server / Lib](#client-server-lib)
+  1. [Style](#style)
 
 
 Introduction
@@ -25,11 +25,11 @@ However, Meteor is a very flexible tool. We tend to use it for projects that can
 Documentation
 -------------
 
-- 2.1 **Top level**: `README.md` at the root of the project. Include a one-line description of the project, a how-to-run and how-to-contribute.
+- [2.1](2.1) <a name='2.1'></a> **Top level**: `README.md` at the root of the project. Include a one-line description of the project, a how-to-run and how-to-contribute.
 
   > Why? Makes it easy for people to contribute. Also, it stimulates you to make contributing and building easy and automated.
 
-- 2.2 **Packages**: Postpone writing documentation as long as possible. When it is needed: write a `README.md` at root of package.
+- [2.2](2.2) <a name='2.2'></a> **Packages**: Postpone writing documentation as long as possible. When it is needed: write a `README.md` at root of package.
 
   > Why? Documentation increases the cost of refactoring.
 
@@ -39,7 +39,7 @@ Documentation
 Folder structure
 ----------------
 
-- 3.1 **Client code**: No convention defined yet.
+- [3.1](3.1) <a name='3.1'></a> **Client code**: No convention defined yet.
 
   There are two choices to make:
 
@@ -50,31 +50,19 @@ Folder structure
 
   *Write one vs distribution*: We need more experience, especially in collaborative projects.
 
-- 3.2 **Packages**: Packages-for-everything.
+- [3.2](3.2) <a name='3.2'></a> **Packages**: Packages-for-everything.
 
   > Why? Packages give you control of file loading order.
 
-  Load one package that represents the whole project. This package should in turn the other top-level packages.
+  Load only top-level packages in `.meteor/packages`.
 
   ```
-  // .meteor/packages
-  my-domain:my-project
+  my-domain:apples
+  my-domain:oranges
+  my-domain:pears
   ```
 
-  ```javascript
-  // packages/my-project/package.js
-  Package.onUse(function(api) {
-    api.versionsFrom('1.2.1');
-
-    api.use([
-      'my-domain:apples',
-      'my-domain:oranges',
-      'my-domain:pears',
-    ]);
-  });
-  ```
-
-- 3.3 **Distribution**: Separated code per topic.
+- [3.3](3.3) <a name='3.3'></a> **Distribution**: Separated code per topic.
 
   > Why? Having *intent on top* makes it easy to find where things are happening, and for developers to work side-by-side on the same project simultaneously.
 
@@ -84,7 +72,7 @@ Folder structure
   packages/financial/invoices/invoiceCollection.js
   ```
 
-- 3.4 **Depth**: Avoid 'flattening' until needed.
+- [3.4](3.4) <a name='3.4'></a> **Depth**: Avoid 'flattening' until needed.
 
   > Why? Exposing details is bad practice. Aim to have *intent on top*. Also, when you start getting package folder names like `apples-storage`, `apples-domain`, etc your packages folder will quickly start looking like a mess.
 
@@ -105,7 +93,7 @@ Folder structure
 
   Of course, it is always possible to refactor specific pieces into a separate package later; when you learn that something is important enough to be *on top*.
 
-- 3.5 **External dependencies**: Load in a dedicated `external-dependencies` package.
+- [3.5](3.5) <a name='3.5'></a> **External dependencies**: Load in a dedicated `external-dependencies` package.
 
   > Why? Figuring out repeatedly which packages you need to do X will quickly drive you crazy, especially when it comes to Meteor core packages.
 
@@ -125,17 +113,6 @@ Folder structure
 
   //packages/external-dependencies/package.js
   api.imply([
-    'momentjs:moment',
-    'okgrow:promise',
-    'useraccounts:materialize',
-  ], ['client', 'server']);  
-  ```
-
-  Meteor core packages are also external dependencies.
-
-  ```javascript
-  //packages/external-dependencies/package.js
-  api.imply([
     'accounts-password',
     'blaze-html-templates',
     'ecmascript',
@@ -150,13 +127,21 @@ Folder structure
     'standard-minifiers',
     'tracker',
   ]);
+
+  api.imply([
+    'momentjs:moment',
+    'okgrow:promise',
+    'useraccounts:materialize',
+  ], ['client', 'server']);  
   ```
+
+  Meteor core packages are also external dependencies.
 
 
 Client / Server / Lib
 ---------------------
 
-- 4.1 **Definition**: Where a file is loaded is defined in [`package.js`](http://docs.meteor.com/#/full/pack_addFiles). Avoid other control mechanisms.
+- [4.1](4.1) <a name='4.1'></a> **Definition**: Where a file is loaded is defined in [`package.js`](http://docs.meteor.com/#/full/pack_addFiles). Avoid other control mechanisms.
 
   > Why? `if` statements make WebStorm / PHPStorm indent your code, `client` / `server` / `lib` folders don't work for `cordova`, and comments may be wrong. The package definition is executing documentation.
 
@@ -166,6 +151,6 @@ Client / Server / Lib
 Style
 -----
 
-- 5.1 **Style guide**: Optionally use [AirBNB](https://github.com/airbnb/javascript).
+- [5.1](5.1) <a name='5.1'></a> **Style guide**: Optionally use [AirBNB](https://github.com/airbnb/javascript).
 
-- 5.2 **Indentation**: Use this repo's [editorconfig](http://editorconfig.org/).
+- [5.2](5.2) <a name='5.2'></a> **Indentation**: Use this repo's [editorconfig](http://editorconfig.org/).
