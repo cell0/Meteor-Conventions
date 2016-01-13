@@ -1,7 +1,7 @@
 Meteor Conventions
 ==================
 
-Conventions used by Cell[0] on [Meteor](https://www.meteor.com/) projects
+Conventions used by Cell[0] on [Meteor](https://www.meteor.com/) projects.
 
 
 Table of contents
@@ -154,3 +154,9 @@ Style
 - [5.1](5.1) <a name='5.1'></a> **Style guide**: Optionally use [AirBNB](https://github.com/airbnb/javascript).
 
 - [5.2](5.2) <a name='5.2'></a> **Indentation**: Use this repo's [editorconfig](http://editorconfig.org/).
+
+
+Contributing
+------------
+
+This document is intended for Cell[0] internal use. Forking is encouraged.
