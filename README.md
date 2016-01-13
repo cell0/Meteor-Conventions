@@ -143,7 +143,7 @@ Client / Server / Lib
 
 - [4.1](4.1) <a name='4.1'></a> **Definition**: Where a file is loaded is defined in [`package.js`](http://docs.meteor.com/#/full/pack_addFiles). Avoid other control mechanisms.
 
-  > Why? `if` statements make WebStorm / PHPStorm indent your code, `client` / `server` / `lib` folders don't work for `cordova`, and comments may be wrong. The package definition is executing documentation.
+  > Why? `if` statements make WebStorm / PHPStorm indent your code, `client` / `server` / `lib` folders don't work for `cordova`, and comments may be wrong. The package definition is executing documentation. The Meteor documentation does not specify how the different mechanisms interact with each other if you use them together.
 
   Avoid using `if (Meteor.isClient)`, `client` / `server` / `lib` folders or comments on top of the file to indicate where a file runs.
 
